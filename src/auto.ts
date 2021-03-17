@@ -29,11 +29,10 @@ namespace Auto {
      * ```
      * @return {Promise<void>}
      */
-    public async runFolder(path: string, options: BasherOption): Promise<void> {
+    public async runFolder(command: string, options: BasherOption): Promise<void> {
       // check input
-      const input = join(path, options.input)
-      const output = join(path, options.output)
-      consola.success(chalk.inverse('\nStart Folder'), path, '\n')
+      const input = options.input
+      const output = options.output
       if (!existsSync(input)) throw new Error('Path not exists')
       let files = await fsPromises.readdir(input)
 
@@ -54,35 +53,18 @@ namespace Auto {
         consola.info('Reduce File names\n')
         await Promise.all(files.map((file, i) => fsPromises.rename(join(copied, file), join(copied, String(i)))))
         files = await fsPromises.readdir(copied)
-
-        if (process.platform === 'linux')
-          await this.callCommand(
-            'wine',
-            [
-              join('.', 'basherConverter.exe'),
-              ...files.map(file => join(copied, file)),
-              '-o',
-              converted,
-              '--output-attributes',
-              'INTENSITY',
-            ],
-            'Convert file to basher'
-          )
-        else if (process.platform === 'win32')
-          await this.callCommand(
-            join('.', 'basherConverter.exe'),
-            [...files.map(file => join(copied, file)), '-o', converted, '--output-attributes', 'INTENSITY'],
-            'Convert file to basher'
-          )
-        else throw new Error(`${process.platform} not supported`)
-
+        await this.callCommand(
+          command,
+          [...files.map(file => join(copied, file)), '-o', converted],
+          'Convert file to basher'
+        )
         if (existsSync(output)) {
           consola.info('\n', chalk.inverse('Remove If folder exist'), '\n')
           await fsPromises.rmdir(output, { recursive: true })
         }
         fsPromises.rmdir(copied, { recursive: true })
         move(converted, output)
-        consola.success(chalk.inverse('End Folder'), path, '\n')
+        consola.success(chalk.inverse('End Folder'), output, '\n')
       }
     }
 
@@ -97,10 +79,10 @@ namespace Auto {
      * ```
      * @return {Promise<void>}
      */
-    public async runFile(path: string, options: BasherOption): Promise<void> {
-      if (!existsSync(path)) throw new Error('Path not exists')
-      consola.success('Start File', path)
-      consola.info(path)
+    public async runFile(command: string, options: BasherOption): Promise<void> {
+      const input = options.input
+      if (!existsSync(input)) throw new Error('Path not exists')
+      consola.success(`Start File ${command}`, input)
       if (options.separate) throw new Error('Separated format not yet supported')
       else throw new Error('Merged fomat with file target not allowed')
     }
