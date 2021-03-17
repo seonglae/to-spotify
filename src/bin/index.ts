@@ -21,21 +21,21 @@ async function main() {
 
   // Run Folder command
   program
-    .command('folder <path>')
+    .command('folder <command>')
     .alias('s')
     .description('Basher run folder')
     .addOption(inputOption)
     .addOption(outputOption)
     .addOption(resetOption)
     .addOption(separateOption)
-    .action(async (path, options) => {
-      await basher.runFolder(path, <Auto.BasherOption>options)
+    .action(async (command, options) => {
+      await basher.runFolder(command, <Auto.BasherOption>options)
       consola.info('After Jobs')
     })
 
   // Run file command
   program
-    .command('file <path>')
+    .command('file <command>')
     .alias('r')
     .description('Basher run file')
     .addOption(inputOption)
@@ -43,8 +43,8 @@ async function main() {
     .addOption(shortOption)
     .addOption(resetOption)
     .addOption(separateOption)
-    .action(async (path, options) => {
-      await basher.runFile(path, <Auto.BasherOption>options)
+    .action(async (command, options) => {
+      await basher.runFile(command, <Auto.BasherOption>options)
       consola.info('After Jobs')
     })
 
