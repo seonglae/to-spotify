@@ -1,5 +1,5 @@
 {
-  "name": "basher",
+  "name": "@seongland/basher",
   "version": "0.2.1",
   "description": "Cross Platform Easy CLI Automation",
   "main": "dist/index.js",
@@ -10,6 +10,13 @@
     "bin": "yarn build && node dist/bin/index.js",
     "compile": "yarn pkg",
     "pkg": "yarn build && rm -rf build && pkg package.json --out-path build "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seongland/basher.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "pkg": {
     "targets": [
