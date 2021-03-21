@@ -7,10 +7,6 @@ yarn global add @seongland/basher
 npm i -G @seongland/basher
 ```
 
-```bash
-npm i -g basher
-```
-
 ## Local Build Install
 
 ```bash
