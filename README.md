@@ -3,7 +3,8 @@
 ## Install
 
 ```bash
-yarn global add basher
+yarn global add @seongland/basher
+npm i -G @seongland/basher
 ```
 
 ```bash
