@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "Cross Platform Easy CLI Automation",
   "main": "dist/index.js",
-  "author": "Seonglae cho",
+  "author": "seonglae <sungle3737@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
