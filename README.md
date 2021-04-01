@@ -3,11 +3,8 @@
 ## Install
 
 ```bash
-yarn global add basher
-```
-
-```bash
-npm i -g basher
+yarn global add @seongland/basher
+npm i -G @seongland/basher
 ```
 
 ## Local Build Install
