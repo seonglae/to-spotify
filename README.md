@@ -8,6 +8,9 @@
 - Migrate Liked Music List
 - Migrate Liked Album List
 - Migrate Liked Artist List
+# Todo
+- Playlist Migration
+
 
 # Install
 ```
@@ -23,16 +26,20 @@ g2s
 - You need bgsq of yout genie id (your id must be public)
 - You nee spotify token from [here](https://developer.spotify.com/console/put-following/?type=&ids=)
 
+### GID is bgsq in url
+![gis](asset/image/gid.png)
+
+### Spotify token get method
+![gis](asset/image/stoken.png)
+![gis](asset/image/auth.png)
+
 
 ```bash
-g2s liked album --gid=blabla --stoken=blabla
-g2s liked song --gid=blabla --stoken=blabla
-g2s liked artist --gid=blabla --stoken=blabla
+g2s like album --gid=blablanumber --stoken=blablatoolong...
+g2s like track --gid=blablanumber --stoken=blablatoolong...
+g2s like artist --gid=blablanumber --stoken=blablatoolong...
 ```
 
-
-# Todo
-- Playlist Migration
 
 
 
