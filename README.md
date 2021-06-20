@@ -1,21 +1,24 @@
-# Install
+# Basher
+
+### TS CLI Tempate
+
+
+### Build with
+- commander
+
+
+## Dev
+```
+npm i -g pnpm
+pnpm i
+pnpm run bin run blabla --bool --string blabla
+```
+
 
 ## Install
-
-```bash
-yarn global add @seongland/basher
-npm i -G @seongland/basher
 ```
-
-## Local Build Install
-
-```bash
-git clone https://github.com/seongland/basher
-sudo npm i -g
-```
-
-# Usage
-
-```bash
-basher -h
+pnpm build
+npm install -g .
+basher -v
+basher run blabla --bool --string blabla
 ```

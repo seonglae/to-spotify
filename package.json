@@ -1,22 +1,17 @@
 {
-  "name": "@seongland/basher",
+  "name": "basher",
   "version": "0.2.1",
-  "description": "Cross Platform Easy CLI Automation",
+  "description": "Easy TS CLI Automation Template",
   "main": "dist/index.js",
   "author": "seonglae <sungle3737@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "bin": "yarn build && node dist/bin/index.js",
-    "compile": "yarn pkg",
-    "pkg": "yarn build && rm -rf build && pkg package.json --out-path build "
+    "bin": "pnpm build && node dist/bin/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seongland/basher.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "url": "https://github.com/seonglane/basher.git"
   },
   "pkg": {
     "targets": [
@@ -34,12 +29,9 @@
     "basher": "dist/bin/index.js"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "commander": "7.1.0",
-    "consola": "^2.15.3",
-    "fs-extra": "^9.1.0",
-    "uuid": "^8.3.2"
+    "consola": "^2.15.3"
   },
   "devDependencies": {
     "@types/node": "14.14.31",
