@@ -22,12 +22,12 @@ export class G2S {
       retryDelay: 1000,
       retry: Infinity,
       instance: this.axios,
-      backoffType: 'linear',
       onRetryAttempt: (err: AxiosError) => {
         if (err.response?.status !== 429) console.log(err.response)
       },
     }
     this.axios.defaults.raxConfig = raxConfig
+    this.axios.defaults.raxConfig.backoffType = 'linear'
     rax.attach(this.axios)
   }
 
