@@ -12,8 +12,8 @@ async function main() {
   program.version(version, '-v, --version').description(description)
 
   // make options
-  const boolOption = new Option('-b, --bool', 'bool option example')
-  const stringOption = new Option('-s, --string <input>', 'string option example')
+  const boolOption = new Option('-b, --bool', 'bool option example').default(false)
+  const stringOption = new Option('-s, --string <input>', 'string option example').default('')
 
   // Run file command
   program
