@@ -1,3 +1,5 @@
-import Auto from './auto'
+import G2S from './auto'
 
-export const basher = new Auto.Basher()
+const g2s = new G2S()
+
+export default g2s

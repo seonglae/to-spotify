@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command, Option } from 'commander'
-import { basher } from '../index'
+import g2s from '../index'
 
 const consola = require('consola')
 const { version, description } = require('../../package.json')
@@ -23,7 +23,7 @@ async function main() {
     .addOption(boolOption)
     .addOption(stringOption)
     .action(async (command, options) => {
-      basher.run()
+      g2s.run()
       consola.info(command, options)
     })
 

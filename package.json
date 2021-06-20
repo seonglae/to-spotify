@@ -1,17 +1,18 @@
 {
-  "name": "basher",
+  "name": "g2s",
   "version": "1.0.0",
-  "description": "Easy TS CLI Automation Template",
+  "description": "Genie To Spotify CLI Migration Tool",
   "main": "dist/index.js",
   "author": "seonglae <sungle3737@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "bin": "pnpm build && node dist/bin/index.js"
+    "bin": "pnpm build && node dist/bin/index.js",
+    "install": "pnpm build && npm i -g ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seonglane/basher.git"
+    "url": "https://github.com/seonglane/genie-to-spotify.git"
   },
   "pkg": {
     "targets": [

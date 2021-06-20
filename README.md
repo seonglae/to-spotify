@@ -7,18 +7,11 @@
 - commander
 
 
-## Dev
-```
-npm i -g pnpm
-pnpm i
-pnpm run bin run blabla --bool --string blabla
-```
-
-
 ## Install
 ```
-pnpm build
-npm install -g .
-basher -v
-basher run blabla --bool --string blabla
+git clone https://github.com/seonglae/genie-to-spotify
+npm i -g pnpm
+pnpm i
+pnpm install
+g2s
 ```
