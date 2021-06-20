@@ -1,6 +1,6 @@
 {
   "name": "basher",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Easy TS CLI Automation Template",
   "main": "dist/index.js",
   "author": "seonglae <sungle3737@gmail.com>",
