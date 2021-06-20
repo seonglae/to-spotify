@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios, { AxiosResponse, AxiosError } from 'axios'
 import * as rax from 'retry-axios'
 import { chromium, Page } from 'playwright'
 const consola = require('consola')
@@ -21,6 +21,9 @@ export class G2S {
       retryDelay: 1000,
       retry: Infinity,
       instance: this.axios,
+      onRetryAttempt: (err: AxiosError) => {
+        if (err.response?.status !== 429) console.log(err.response)
+      },
     }
     this.axios.defaults.raxConfig = raxConfig
     rax.attach(this.axios)
