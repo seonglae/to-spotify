@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Command, Option } from 'commander'
+
 import g2s from '../index'
 
 const consola = require('consola')
@@ -12,19 +13,20 @@ async function main() {
   program.version(version, '-v, --version').description(description)
 
   // make options
-  const boolOption = new Option('-b, --bool', 'bool option example').default(false)
-  const stringOption = new Option('-s, --string <input>', 'string option example').default('')
+  const genieID = new Option('--gid <gid>', 'bool genie account id number').default(false)
+  const spotifyToken = new Option('--stoken <stoken>, --spotify-token <stoken>', 'spotify token').default('')
 
   // Run file command
   program
-    .command('run <command>')
+    .command('like <command>')
     .alias('r')
-    .description('Basher Run')
-    .addOption(boolOption)
-    .addOption(stringOption)
+    .description('G2S Migrate genie liked artist to spotify follow artist')
+    .addOption(genieID)
+    .addOption(spotifyToken)
     .action(async (command, options) => {
-      g2s.run()
-      consola.info(command, options)
+      if (command === 'artists') g2s.likeArtist(options.gid, options.stoken)
+      else if (command === 'albums') g2s.likeAlbums(options.gid, options.stoken)
+      else if (command === 'tracks') g2s.likeTracks(options.gid, options.stoken)
     })
 
   program.parse(process.argv)

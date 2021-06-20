@@ -1,5 +1,5 @@
 {
-  "name": "g2s",
+  "name": "genie-to-spotify",
   "version": "1.0.0",
   "description": "Genie To Spotify CLI Migration Tool",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "bin": "pnpm build && node dist/bin/index.js",
-    "install": "pnpm build && npm i -g ."
+    "install": "pnpm build && npm -g i ."
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,15 @@
     "macos"
   ],
   "bin": {
-    "basher": "dist/bin/index.js"
+    "g2s": "dist/bin/index.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "commander": "7.1.0",
-    "consola": "^2.15.3"
+    "consola": "^2.15.3",
+    "playwright": "^1.12.2",
+    "retry-axios": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "14.14.31",
