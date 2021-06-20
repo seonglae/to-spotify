@@ -71,7 +71,7 @@ export class G2S {
     const promises = []
     for (const id of ids) promises.push(this.axios.put(`${SPOTIFY_API}/me/albums?&ids=${id}`))
     const reses = await Promise.all(promises)
-    if (reses.every(res => res.status === 200)) consola.success(`${ids.length} artists followed`)
+    if (reses.every(res => res.status === 200)) consola.success(`${ids.length} album liked`)
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
@@ -93,7 +93,7 @@ export class G2S {
     const promises = []
     for (const id of ids) promises.push(this.axios.put(`${SPOTIFY_API}/me/tracks?&ids=${id}`))
     const reses = await Promise.all(promises)
-    if (reses.every(res => res.status === 200)) consola.success(`${ids.length} artists followed`)
+    if (reses.every(res => res.status === 200)) consola.success(`${ids.length} tracks liked`)
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
