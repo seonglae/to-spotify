@@ -1,6 +1,7 @@
 import axios, { AxiosResponse, AxiosError } from 'axios'
 import * as rax from 'retry-axios'
 import { chromium, Page } from 'playwright'
+
 const consola = require('consola')
 
 const GENIE = 'https://www.genie.co.kr'
@@ -21,6 +22,7 @@ export class G2S {
       retryDelay: 1000,
       retry: Infinity,
       instance: this.axios,
+      backoffType: 'linear',
       onRetryAttempt: (err: AxiosError) => {
         if (err.response?.status !== 429) console.log(err.response)
       },
