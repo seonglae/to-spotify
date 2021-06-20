@@ -40,7 +40,7 @@ g2s like track --gid=blablanumber --stoken=blablatoolong...
 g2s like artist --gid=blablanumber --stoken=blablatoolong...
 ```
 
-There will be show unresolved list
+There will be show some unresolved list
 That should be migrated manually
 
 
