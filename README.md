@@ -8,8 +8,9 @@
 - Migrate Liked Music List
 - Migrate Liked Album List
 - Migrate Liked Artist List
-# Todo
+# Soon
 - Playlist Migration
+- Melon Support
 
 
 # Install
