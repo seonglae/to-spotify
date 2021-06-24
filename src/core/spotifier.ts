@@ -15,7 +15,7 @@ type Search = {
 
 export class Spotifier implements Musicface {
   axios: AxiosInstance = axios.create()
-  nextQuery: string = ''
+  nextQueries: string = ''
 
   constructor(stoken: string) {
     this.axios.defaults.headers.common.Authorization = `Bearer ${stoken}`
@@ -37,6 +37,7 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'track')
     if (ids.length === 0) return
+    return
 
     // Step 3. Migrate Playlist
     const sid = (await this.axios.get(`${SPOTIFY_API}/me`)).data.id
@@ -59,6 +60,7 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'artist')
     if (ids.length === 0) return
+    return
 
     // Step 3. Follow Artists
     const promises = []
@@ -73,6 +75,7 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'album')
     if (ids.length === 0) return
+    return
 
     // Step 3. Follow Artists
     const promises = []
@@ -87,6 +90,7 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'track')
     if (ids.length === 0) return
+    return
 
     // Step 3. Like Tracks
     const promises = []
@@ -111,7 +115,8 @@ export class Spotifier implements Musicface {
     reqs.map((req, i) => (req.results = responses[i].data[`${type}s`].items))
 
     const faileds = reqs.filter(req => req.results.length === 0).map(req => req.name)
-    consola.error(`Not Resolved\n` + faileds.join('\n'))
+    console.log(faileds.join('\n'))
+    if (faileds.length > 0) consola.error(`Not Resolved ${faileds.length}`)
     return reqs.filter(req => req.results.length !== 0).map(res => res.results[0].id)
   }
 }

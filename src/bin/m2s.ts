@@ -29,6 +29,8 @@ function main() {
     .addOption(memberKey)
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
+      if (!options.stoken) return consola.error('No Spotify Token')
+      if (!options.mkey) return consola.error('No Melon User ID')
       const m2s = new M2S(options.stoken, options)
       if (command === 'artists') m2s.likedArtists()
       else if (command === 'albums') m2s.likedAlbums()
@@ -43,6 +45,8 @@ function main() {
     .addOption(playlistSeq)
     .addOption(playlistPublic)
     .action(async (options: PlayListOption): Promise<void> => {
+      if (!options.stoken) return consola.error('No Spotify Token')
+      if (!options.pseq) return consola.error('No Melon Playlist ID')
       const m2s = new M2S(options.stoken, options)
       m2s.playlist(options.name, options.public)
     })
