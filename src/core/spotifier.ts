@@ -37,7 +37,6 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'track')
     if (ids.length === 0) return
-    return
 
     // Step 3. Migrate Playlist
     const sid = (await this.axios.get(`${SPOTIFY_API}/me`)).data.id
@@ -60,7 +59,6 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'artist')
     if (ids.length === 0) return
-    return
 
     // Step 3. Follow Artists
     const promises = []
@@ -75,7 +73,6 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'album')
     if (ids.length === 0) return
-    return
 
     // Step 3. Follow Artists
     const promises = []
@@ -90,7 +87,6 @@ export class Spotifier implements Musicface {
     if (all.length === 0) return
     const ids = await this.nameToSpotifyId(all, 'track')
     if (ids.length === 0) return
-    return
 
     // Step 3. Like Tracks
     const promises = []
