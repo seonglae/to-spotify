@@ -12,7 +12,7 @@
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "bin": "pnpm build && node dist/bin/index.js",
-    "install": "pnpm build && npm -g i ."
+    "cli": "pnpm build && npm -g i ."
   },
   "repository": {
     "type": "git",
