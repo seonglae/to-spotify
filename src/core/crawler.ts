@@ -5,6 +5,10 @@ const consola = require('consola')
 export class Crawler {
   nextQuery: string = ''
 
+  constructor(options: { nextQuery: string }) {
+    this.nextQuery = options.nextQuery
+  }
+
   async getList(page: Page, queries: Array<string>, filters: Array<Array<string>>) {
     const all: Array<string> = []
     let pg = 1
