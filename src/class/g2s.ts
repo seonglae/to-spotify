@@ -1,6 +1,6 @@
 import axios, { AxiosResponse, AxiosError } from 'axios'
 import * as rax from 'retry-axios'
-import { chromium, Page } from 'playwright'
+import { chromium as engine, Page } from 'playwright'
 
 const consola = require('consola')
 
@@ -31,20 +31,22 @@ export class G2S {
     rax.attach(this.axios)
   }
 
-  public async migratePlaylist(bgsq: string, mxnm: string, stoken: string, name?: string, open?: boolean) {
+  public async playlist(bgsq: string, mxnm: string, stoken: string, name?: string, open?: boolean) {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
-    const browser = await chromium.launch()
+    const browser = await engine.launch()
     const context = await browser.newContext()
     const page: Page = await context.newPage()
     await page.goto(`${GENIE}/myMusic/profileRecommandDetail?axnm=${mxnm}&bgsq=${bgsq}`)
-    const all = await this.getLists(page, ['a.artist', 'a.title'])
-    const title = await this.getTitle(page)
+    const all = await this.getGenieLists(page, ['a.artist', 'a.title'])
+    const title = await this.getGenieTitle(page)
     await browser.close()
 
     // Step 2. Search Spotify Artist ids
-    const ids = await this.searchByName(all, 'track')
+    if (all.length === 0) return
+    const ids = await this.nameToSpotifyId(all, 'track')
+    if (ids.length === 0) return
 
     // Step 3. Migrate Playlist
     const sid = (await this.axios.get(`${SPOTIFY_API}/me`)).data.id
@@ -58,23 +60,25 @@ export class G2S {
     const uris = []
     for (const id of ids) uris.push(`spotify:track:${id}`)
     const res = await this.axios.post(`${SPOTIFY_API}/playlists/${playlist.id}/tracks`, { uris })
-    if (res.status === 200) consola.success(`${ids.length} tracks added`)
+    if (res.status === 201) consola.success(`${ids.length} tracks added`)
     else consola.error(`Something Wrong with code ${res.status}`)
   }
 
-  public async likeArtist(bgsq: string, stoken: string): Promise<void> {
+  public async likedArtists(bgsq: string, stoken: string): Promise<void> {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
-    const browser = await chromium.launch()
+    const browser = await engine.launch()
     const context = await browser.newContext()
     const page: Page = await context.newPage()
     await page.goto(`${GENIE}/myMusic/likeArtist?mltp=artist&bgsq=${bgsq}`)
-    const all = await this.getLists(page, ['.artist-name'])
+    const all = await this.getGenieLists(page, ['.artist-name'])
     await browser.close()
 
     // Step 2. Search Spotify Artist ids
-    const ids = await this.searchByName(all, 'artist')
+    if (all.length === 0) return
+    const ids = await this.nameToSpotifyId(all, 'artist')
+    if (ids.length === 0) return
 
     // Step 3. Follow Artists
     const promises = []
@@ -84,19 +88,21 @@ export class G2S {
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
-  public async likeAlbums(bgsq: string, stoken: string): Promise<void> {
+  public async likedAlbums(bgsq: string, stoken: string): Promise<void> {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
-    const browser = await chromium.launch()
+    const browser = await engine.launch()
     const context = await browser.newContext()
     const page = await context.newPage()
     await page.goto(`${GENIE}/myMusic/likeAlbum?mltp=album&bgsq=${bgsq}`)
-    const all = await this.getLists(page, ['dt.ellipsis', '.album-artist'])
+    const all = await this.getGenieLists(page, ['dt.ellipsis', '.album-artist'])
     await browser.close()
 
     // Step 2. Search Spotify Album ids
-    const ids = await this.searchByName(all, 'album')
+    if (all.length === 0) return
+    const ids = await this.nameToSpotifyId(all, 'album')
+    if (ids.length === 0) return
 
     // Step 3. Follow Artists
     const promises = []
@@ -106,19 +112,20 @@ export class G2S {
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
-  public async likeTracks(bgsq: string, stoken: string): Promise<void> {
+  public async likedTracks(bgsq: string, stoken: string): Promise<void> {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
-    const browser = await chromium.launch()
+    const browser = await engine.launch()
     const context = await browser.newContext()
     const page = await context.newPage()
     await page.goto(`${GENIE}/myMusic/likeSong?mltp=song&bgsq=${bgsq}`)
-    const all = await this.getLists(page, ['a.artist', 'a.title'])
+    const all = await this.getGenieLists(page, ['a.artist', 'a.title'])
     await browser.close()
 
     // Step 2. Search Spotify Track ids
-    const ids = await this.searchByName(all, 'track')
+    if (all.length === 0) return
+    const ids = await this.nameToSpotifyId(all, 'track')
 
     // Step 3. Like Tracks
     const promises = []
@@ -128,7 +135,7 @@ export class G2S {
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
-  async getLists(page: Page, queries: Array<string>) {
+  async getGenieLists(page: Page, queries: Array<string>) {
     const all: Array<string> = []
     let pg = 1
     while (true) {
@@ -142,9 +149,9 @@ export class G2S {
             else nameSets[index] = [name]
           })
         }
-        const lists: Array<string> = nameSets.map(nameSet => nameSet.join(' - '))
+        const lists: Array<string> = nameSets.map(nameSet => nameSet.join(' '))
         const nextBtn = <HTMLAnchorElement>document.querySelectorAll('.page-nav .next')[0]
-        return { href: nextBtn.onclick ? undefined : nextBtn.href, lists }
+        return { href: nextBtn?.onclick ? undefined : nextBtn.href, lists }
       }, queries)
       all.push(...lists)
       consola.success(`Page ${pg++} Added`)
@@ -156,22 +163,26 @@ export class G2S {
     return all
   }
 
-  async getTitle(page: Page): Promise<string> {
-    return await page.evaluate((queries): string => {
+  async getGenieTitle(page: Page): Promise<string> {
+    return await page.evaluate((): string => {
       const element = <HTMLElement>document.querySelector('.info__title')
       const title: string = element.innerText
       return title
     })
   }
 
-  async searchByName(all: Array<string>, type: string) {
+  async nameToSpotifyId(all: Array<string>, type: string): Promise<Array<string>> {
     const reqs = []
     for (const name of all) {
-      const res = this.axios.get(`${SPOTIFY_API}/search?q=${encodeURI(name)}&type=${type}`)
+      const res = this.axios.get(`${SPOTIFY_API}/search?q=${encodeURI(name)}&type=${type}`).catch(err => err.response)
       const search: Search = { res, name, results: [] }
       reqs.push(search)
     }
     const responses = await Promise.all(reqs.map(req => req.res))
+    if (responses.every(res => res.status === 401)) {
+      consola.error('Token Expired!')
+      return []
+    }
     reqs.map((req, i) => (req.results = responses[i].data[`${type}s`].items))
 
     const faileds = reqs.filter(req => req.results.length === 0).map(req => req.name)

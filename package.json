@@ -1,6 +1,6 @@
 {
   "name": "to-spotify",
-  "version": "0.9.2",
+  "version": "1.0.0",
   "description": "Genie To Spotify CLI Migration Tool",
   "main": "dist/index.js",
   "author": {
