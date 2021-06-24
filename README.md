@@ -17,7 +17,7 @@ Migrate your Musics to Spotify</h2>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/27716524/123204750-abd5f780-d4f3-11eb-9698-3190870e55ed.png" width="500"/>
 </p>
-                                                                                                                            
+
 **Powershell** 을 **Windows** 검색창에 치고 우클릭해서 **관리자의 권한으로 실행**
 아래 **커맨드**들을 복붙 엔터
 
