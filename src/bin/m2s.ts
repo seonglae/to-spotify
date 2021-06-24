@@ -4,8 +4,8 @@ import { Command, Option } from 'commander'
 
 import M2S from '../worker/m2s'
 
-type LikedOption = { bgsq: string; stoken: string }
-type PlayListOption = { bgsq: string; stoken: string; mxnm: string; name?: string; public?: boolean }
+type LikedOption = { stoken: string; mkey: string }
+type PlayListOption = { stoken: string; pseq: string; name?: string; public?: boolean }
 
 const consola = require('consola')
 const { version, description }: { version: string; description: string } = require('../../package.json')
@@ -13,11 +13,11 @@ const program = new Command()
 
 function main() {
   // Necessary Options
-  const genieUser = new Option('-g --bgsq <bgsq>', 'bool genie account id number').default('')
   const spotifyToken = new Option('-s, --stoken <stoken>', 'spotify token').default('')
-  const geniePlaylist = new Option('-p --mxnm <mxnm>', 'genie playlist id').default('')
 
   // Optional Options
+  const memberKey = new Option('-m, --mkey <mkey>', 'melon member key').default('')
+  const playlistSeq = new Option('-p --pseq <pseq>', 'melon playlist sequence').default('')
   const playlistName = new Option('--name <name>', 'new name').default(undefined)
   const playlistPublic = new Option('--public').default(false)
 
@@ -25,27 +25,26 @@ function main() {
   program.version(version, '-v, --version').description(description)
   program
     .command('liked <command>')
-    .description('G2S Migrate genie liked artist to spotify follow artist')
-    .addOption(genieUser)
+    .description('G2S Migrate melon liked artist to spotify follow artist')
+    .addOption(memberKey)
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
-      const m2s = new M2S()
-      if (command === 'artists') m2s.likedMelonArtists(options.bgsq, options.stoken)
-      else if (command === 'albums') m2s.likedMelonAlbums(options.bgsq, options.stoken)
-      else if (command === 'tracks') m2s.likedMelonTracks(options.bgsq, options.stoken)
+      const m2s = new M2S(options.stoken, options)
+      if (command === 'artists') m2s.likedMelonArtists()
+      else if (command === 'albums') m2s.likedMelonAlbums()
+      else if (command === 'tracks') m2s.likedMelonTracks()
       else consola.error(`No ${command} Option, artists or albums or tracks`)
     })
   program
     .command('playlist')
-    .description('G2S Migrate genie playlist to Spotify playlist')
-    .addOption(genieUser)
+    .description('M2S Migrate melon playlist to Spotify playlist')
     .addOption(spotifyToken)
     .addOption(playlistName)
-    .addOption(geniePlaylist)
+    .addOption(playlistSeq)
     .addOption(playlistPublic)
     .action(async (options: PlayListOption): Promise<void> => {
-      const m2s = new M2S()
-      m2s.melonPlaylist(options.bgsq, options.stoken, options.name, options.public)
+      const m2s = new M2S(options.stoken, options)
+      m2s.melonPlaylist(options.name, options.public)
     })
   program.parse(process.argv)
 }

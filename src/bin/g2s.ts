@@ -29,10 +29,10 @@ function main() {
     .addOption(genieUser)
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
-      const g2s = new G2S(options.bgsq)
-      if (command === 'artists') g2s.likedGenieArtists(options.bgsq, options.stoken)
-      else if (command === 'albums') g2s.likedGenieAlbums(options.bgsq, options.stoken)
-      else if (command === 'tracks') g2s.likedGenieTracks(options.bgsq, options.stoken)
+      const g2s = new G2S(options.stoken, options)
+      if (command === 'artists') g2s.likedGenieArtists()
+      else if (command === 'albums') g2s.likedGenieAlbums()
+      else if (command === 'tracks') g2s.likedGenieTracks()
       else consola.error(`No ${command} Option, artists or albums or tracks`)
     })
   program
@@ -44,8 +44,8 @@ function main() {
     .addOption(geniePlaylist)
     .addOption(playlistPublic)
     .action(async (options: PlayListOption): Promise<void> => {
-      const g2s = new G2S(options.bgsq)
-      g2s.geniePlaylist(options.bgsq, options.mxnm, options.stoken, options.name, options.public)
+      const g2s = new G2S(options.stoken, options)
+      g2s.geniePlaylist(options.name, options.public)
     })
   program.parse(process.argv)
 }
