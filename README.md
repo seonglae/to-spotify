@@ -48,7 +48,7 @@ node, npm [설치](https://nodejs.org/ko/download/)하고 위 **커맨드**를 �
 <img src="https://user-images.githubusercontent.com/27716524/123205653-4125bb80-d4f5-11eb-83bc-e6c2f9ebe587.png" width="500"/>
 </p>
 
-여기 url 에 bgsq=뭐라뭐라 부분을 기억합니다 (&pg=4이부분 말고)
+여기 url 에 bgsq=뭐라뭐라 부분을 기억합니다 (&pg=4이부분 앞까지)
 
 ### 2. Spotify에 인증할 토큰 발급
 
