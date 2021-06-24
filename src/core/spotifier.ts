@@ -24,7 +24,8 @@ export class Spotifier implements Musicface {
       retry: Infinity,
       instance: this.axios,
       onRetryAttempt: (err: AxiosError) => {
-        if (err.response?.status !== 429) console.log(err.response)
+        if (err.response?.status !== 429) return
+        // console.log(err.response)
       },
     }
     this.axios.defaults.raxConfig = raxConfig
@@ -99,7 +100,7 @@ export class Spotifier implements Musicface {
   async nameToSpotifyId(all: Array<string>, type: string): Promise<Array<string>> {
     const reqs = []
     for (const name of all) {
-      const res = this.axios.get(`${SPOTIFY_API}/search?q=${encodeURI(name)}&type=${type}`).catch(err => err.response)
+      const res = this.axios.get(`${SPOTIFY_API}/search?limit=1&q=${encodeURI(name)}&type=${type}`).catch(err => err.response)
       const search: Search = { res, name, results: [] }
       reqs.push(search)
     }
