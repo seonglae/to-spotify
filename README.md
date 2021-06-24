@@ -1,7 +1,13 @@
 <h1 align="center">To Spotify</h1>
+<h3 align="center">
+Migrate your Musics to Spotify</h2>
 
-- 스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다
-- 현재 지니만 지원
+<p align="center">
+ <a href="https://lgtm.com/projects/g/seonglae/to-spotify/context:javascript"><img alt="undefined" src="https://img.shields.io/lgtm/grade/javascript/g/seonglae/to-spotify.svg?logo=lgtm&logoWidth=18"/>
+ </a>
+<p>
+스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다
+
 
 <br/>
 
