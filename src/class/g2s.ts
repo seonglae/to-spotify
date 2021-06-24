@@ -31,14 +31,45 @@ export class G2S {
     rax.attach(this.axios)
   }
 
-  public async likeArtist(gid: string, stoken: string): Promise<void> {
+  public async migratePlaylist(bgsq: string, mxnm: string, stoken: string, name?: string, open?: boolean) {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
     const browser = await chromium.launch()
     const context = await browser.newContext()
     const page: Page = await context.newPage()
-    await page.goto(`${GENIE}/myMusic/likeArtist?mltp=artist&bgsq=${gid}`)
+    await page.goto(`${GENIE}/myMusic/profileRecommandDetail?axnm=${mxnm}&bgsq=${bgsq}`)
+    const all = await this.getLists(page, ['a.artist', 'a.title'])
+    const title = await this.getTitle(page)
+    await browser.close()
+
+    // Step 2. Search Spotify Artist ids
+    const ids = await this.searchByName(all, 'track')
+
+    // Step 3. Migrate Playlist
+    const sid = (await this.axios.get(`${SPOTIFY_API}/me`)).data.id
+    const playlist = (
+      await this.axios.post(`${SPOTIFY_API}/users/${sid}/playlists`, {
+        name: name ? name : title,
+        description: `Migrated from Genie ${title} by Seonglae's To Spotify`,
+        public: open,
+      })
+    ).data
+    const uris = []
+    for (const id of ids) uris.push(`spotify:track:${id}`)
+    const res = await this.axios.post(`${SPOTIFY_API}/playlists/${playlist.id}/tracks`, { uris })
+    if (res.status === 200) consola.success(`${ids.length} tracks added`)
+    else consola.error(`Something Wrong with code ${res.status}`)
+  }
+
+  public async likeArtist(bgsq: string, stoken: string): Promise<void> {
+    this.setAxios(stoken)
+
+    // Step 1. Crawl Genie Lists
+    const browser = await chromium.launch()
+    const context = await browser.newContext()
+    const page: Page = await context.newPage()
+    await page.goto(`${GENIE}/myMusic/likeArtist?mltp=artist&bgsq=${bgsq}`)
     const all = await this.getLists(page, ['.artist-name'])
     await browser.close()
 
@@ -53,18 +84,18 @@ export class G2S {
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
-  public async likeAlbums(gid: string, stoken: string): Promise<void> {
+  public async likeAlbums(bgsq: string, stoken: string): Promise<void> {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
     const browser = await chromium.launch()
     const context = await browser.newContext()
     const page = await context.newPage()
-    await page.goto(`${GENIE}/myMusic/likeAlbum?mltp=album&bgsq=${gid}`)
+    await page.goto(`${GENIE}/myMusic/likeAlbum?mltp=album&bgsq=${bgsq}`)
     const all = await this.getLists(page, ['dt.ellipsis', '.album-artist'])
     await browser.close()
 
-    // Step 2. Search Spotify Artist ids
+    // Step 2. Search Spotify Album ids
     const ids = await this.searchByName(all, 'album')
 
     // Step 3. Follow Artists
@@ -75,21 +106,21 @@ export class G2S {
     else consola.error(`Something Wrong with code ${reses[0].status}`)
   }
 
-  public async likeTracks(gid: string, stoken: string): Promise<void> {
+  public async likeTracks(bgsq: string, stoken: string): Promise<void> {
     this.setAxios(stoken)
 
     // Step 1. Crawl Genie Lists
     const browser = await chromium.launch()
     const context = await browser.newContext()
     const page = await context.newPage()
-    await page.goto(`${GENIE}/myMusic/likeSong?mltp=song&bgsq=${gid}`)
+    await page.goto(`${GENIE}/myMusic/likeSong?mltp=song&bgsq=${bgsq}`)
     const all = await this.getLists(page, ['a.artist', 'a.title'])
     await browser.close()
 
-    // Step 2. Search Spotify Artist ids
+    // Step 2. Search Spotify Track ids
     const ids = await this.searchByName(all, 'track')
 
-    // Step 3. Follow Artists
+    // Step 3. Like Tracks
     const promises = []
     for (const id of ids) promises.push(this.axios.put(`${SPOTIFY_API}/me/tracks?&ids=${id}`))
     const reses = await Promise.all(promises)
@@ -123,6 +154,14 @@ export class G2S {
     consola.info('\nGenie Lists\n')
     console.log(all.join('\n'))
     return all
+  }
+
+  async getTitle(page: Page): Promise<string> {
+    return await page.evaluate((queries): string => {
+      const element = <HTMLElement>document.querySelector('.info__title')
+      const title: string = element.innerText
+      return title
+    })
   }
 
   async searchByName(all: Array<string>, type: string) {

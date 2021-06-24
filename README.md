@@ -15,7 +15,12 @@ g2s --help
 - You need bgsq of yout genie id (your id must be public)
 - You nee spotify token from [here](https://developer.spotify.com/console/put-following/?type=&ids=)
 
-### 여기 url 에 bgsq=뭐라뭐라 부분을 gid라고 하겠습니다
+지니뮤직에 들어가서 플레이리스트에 나의 좋아요를 누릅니다
+리스트에서 2번째 페이지나 다른 페이지를 클릭합니다
+![gis](asset/image/nav.png)
+
+여기 url 에 bgsq=뭐라뭐라 부분을 기억합니다
+플레이리스트라면 mxnm도 기억합니다
 ![gis](asset/image/gid.png)
 
 ### Spotify에 인증할 토큰도 발급받아야 하는데
