@@ -5,7 +5,7 @@
 <br/>
 
 
-# Install
+# 설치
 
 ### Windows
 
@@ -14,13 +14,13 @@
 powershell 을 windows 검색창에 치고 우클릭해서 관리자의 권한으로 실행
 아래 커맨드들을 복붙 엔터
 
-### node, npm 설치
+- node, npm 설치
 ```bash
 iwr -useb get.scoop.sh | iex
 scoop install nodejs
 ```
 
-### to-sptify 설치
+- to-sptify 설치
 ```bash
 npm i -g to-spotify
 g2s --help
@@ -29,10 +29,7 @@ g2s --help
 node, npm [설치](https://nodejs.org/ko/download/)하고 위 커맨드를 실행
 
 
-# Usage
-- You need bgsq of yout genie id (your id must be public)
-- You nee spotify token from [here](https://developer.spotify.com/console/get-search-item/)
-
+# 사용법
 지니뮤직에 들어가서 플레이리스트에 나의 좋아요를 누릅니다
 리스트에서 2번째 페이지나 다른 페이지를 클릭합니다
 ![nav](asset/image/nav.png)
@@ -42,8 +39,12 @@ node, npm [설치](https://nodejs.org/ko/download/)하고 위 커맨드를 실�
 ![gid](asset/image/gid.png)
 
 ### Spotify에 인증할 토큰도 발급받아야 하는데
+- [여기](https://developer.spotify.com/console/get-search-item/)
+에서 아래 사진같이 받을 수 있음
 ![gis](asset/image/auth.png)
 ![auth](asset/image/auth.png)
+
+- 토큰이 아주 기니까 전부 
 
 
 ```bash
