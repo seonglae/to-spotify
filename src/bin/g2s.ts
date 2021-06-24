@@ -29,10 +29,12 @@ function main() {
     .addOption(genieUser)
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
+      if (!options.stoken) return consola.error('No Spotify Token')
+      if (!options.bgsq) return consola.error('No Genie User ID')
       const g2s = new G2S(options.stoken, options)
-      if (command === 'artists') g2s.likedGenieArtists()
-      else if (command === 'albums') g2s.likedGenieAlbums()
-      else if (command === 'tracks') g2s.likedGenieTracks()
+      if (command === 'artists') g2s.likedArtists()
+      else if (command === 'albums') g2s.likedAlbums()
+      else if (command === 'tracks') g2s.likedTracks()
       else consola.error(`No ${command} Option, artists or albums or tracks`)
     })
   program
@@ -44,8 +46,11 @@ function main() {
     .addOption(geniePlaylist)
     .addOption(playlistPublic)
     .action(async (options: PlayListOption): Promise<void> => {
+      if (!options.stoken) return consola.error('No Spotify Token')
+      if (!options.mxnm) return consola.error('No Genie Playlist ID')
+      if (!options.bgsq) return consola.error('No Genie User ID')
       const g2s = new G2S(options.stoken, options)
-      g2s.geniePlaylist(options.name, options.public)
+      g2s.playlist(options.name, options.public)
     })
   program.parse(process.argv)
 }

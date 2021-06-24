@@ -15,7 +15,7 @@ type Search = {
 
 export class Spotifier implements Musicface {
   axios: AxiosInstance = axios.create()
-  nextQuery: string = ''
+  nextQueries: string = ''
 
   constructor(stoken: string) {
     this.axios.defaults.headers.common.Authorization = `Bearer ${stoken}`
@@ -111,7 +111,8 @@ export class Spotifier implements Musicface {
     reqs.map((req, i) => (req.results = responses[i].data[`${type}s`].items))
 
     const faileds = reqs.filter(req => req.results.length === 0).map(req => req.name)
-    consola.error(`Not Resolved\n` + faileds.join('\n'))
+    console.log(faileds.join('\n'))
+    if (faileds.length > 0) consola.error(`Not Resolved ${faileds.length}`)
     return reqs.filter(req => req.results.length !== 0).map(res => res.results[0].id)
   }
 }

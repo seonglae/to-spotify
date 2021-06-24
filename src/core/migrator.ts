@@ -5,7 +5,7 @@ export class Migrator implements Musicface {
   spotifier: Spotifier
   crawler: Crawler
 
-  constructor(stoken: string, options: { nextQuery: string }) {
+  constructor(stoken: string, options: { nextQueries: Array<string> }) {
     this.spotifier = new Spotifier(stoken)
     this.crawler = new Crawler(options)
   }
@@ -13,7 +13,7 @@ export class Migrator implements Musicface {
   public async playlist(
     url: string,
     queries: Array<string>,
-    filters: Array<Array<string>>,
+    filters: Array<string>,
     titleQuery: string,
     name?: string,
     open?: boolean
@@ -26,7 +26,7 @@ export class Migrator implements Musicface {
     this.spotifier.playlist(all, title, name, open)
   }
 
-  public async likedArtists(url: string, queries: Array<string>, filters: Array<Array<string>>): Promise<void> {
+  public async likedArtists(url: string, queries: Array<string>, filters: Array<string>): Promise<void> {
     // Step 1. Crawl Lists
     const { page, browser } = await this.crawler.goToPage(url)
     const all = await this.crawler.getList(page, queries, filters)
@@ -34,7 +34,7 @@ export class Migrator implements Musicface {
     this.spotifier.likedArtists(all)
   }
 
-  public async likedAlbums(url: string, queries: Array<string>, filters: Array<Array<string>>): Promise<void> {
+  public async likedAlbums(url: string, queries: Array<string>, filters: Array<string>): Promise<void> {
     // Step 1. Crawl Lists
     const { page, browser } = await this.crawler.goToPage(url)
     const all = await this.crawler.getList(page, queries, filters)
@@ -42,7 +42,7 @@ export class Migrator implements Musicface {
     this.spotifier.likedAlbums(all)
   }
 
-  public async likedTracks(url: string, queries: Array<string>, filters: Array<Array<string>>): Promise<void> {
+  public async likedTracks(url: string, queries: Array<string>, filters: Array<string>): Promise<void> {
     const { page, browser } = await this.crawler.goToPage(url)
     // Step 1. Crawl Lists
     const all = await this.crawler.getList(page, queries, filters)
