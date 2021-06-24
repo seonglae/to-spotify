@@ -1,7 +1,6 @@
-# To Spotify
-
-- 스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다
-- 현재 지니만 지원
+<h1 align="center">To Spotify</h1>
+<div align="center">스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다</div>
+<div align="center">현재 지니만 지원</div>
 
 <br/>
 
