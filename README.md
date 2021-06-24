@@ -1,36 +1,24 @@
 # Genie To Spotify
 
-### Spotify Migration Tool from Genie
+### 지니에서 스포티파이로 좋아하는 가수, 앨범, 재생목록, 플레이리스트를 옮길 수 있습니다!
 
 <br/>
-
-# Feature
-- Migrate Liked Music List
-- Migrate Liked Album List
-- Migrate Liked Artist List
-# Soon
-- Playlist Migration
-- Melon Support
 
 
 # Install
 ```
-git clone https://github.com/seonglae/genie-to-spotify
-npm i -g pnpm
-pnpm i
-pnpm install
-g2s
+npm i -g to-spotify
+g2s --help
 ```
-
 
 # Usage
 - You need bgsq of yout genie id (your id must be public)
 - You nee spotify token from [here](https://developer.spotify.com/console/put-following/?type=&ids=)
 
-### GID is bgsq in url
+### 여기 url 에 bgsq=뭐라뭐라 부분을 gid라고 하겠습니다
 ![gis](asset/image/gid.png)
 
-### Spotify token get method
+### Spotify에 인증할 토큰도 발급받아야 하는데
 ![gis](asset/image/stoken.png)
 ![gis](asset/image/auth.png)
 
@@ -41,10 +29,15 @@ g2s like track --gid=blablanumber --stoken=blablatoolong...
 g2s like artist --gid=blablanumber --stoken=blablatoolong...
 ```
 
-There will be show some unresolved list
-That should be migrated manually
+한글이 포함되어 있는 곡들은 잘 안찾아지는 경향이 있어서 이전 실패 곡들이 리스트들이 곡들이 커맨드창에 뜰텐데
+해당 곡들은 직접 넣어야 합니다 ㅠㅠ
 
 
+# 기능
+- Migrate Liked Music List
+- Migrate Liked Album List
+- Migrate Liked Artist List
 
-
-If you want to migrate playlist, check [here](https://www.clien.net/service/board/lecture/15959548)
+# Soon
+- Playlist Migration
+- Melon Support
