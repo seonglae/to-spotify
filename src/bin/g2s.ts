@@ -30,9 +30,9 @@ function main() {
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
       const g2s = new G2S(options.stoken, options)
-      if (command === 'artists') g2s.likedGenieArtists()
-      else if (command === 'albums') g2s.likedGenieAlbums()
-      else if (command === 'tracks') g2s.likedGenieTracks()
+      if (command === 'artists') g2s.likedArtists()
+      else if (command === 'albums') g2s.likedAlbums()
+      else if (command === 'tracks') g2s.likedTracks()
       else consola.error(`No ${command} Option, artists or albums or tracks`)
     })
   program
@@ -45,7 +45,7 @@ function main() {
     .addOption(playlistPublic)
     .action(async (options: PlayListOption): Promise<void> => {
       const g2s = new G2S(options.stoken, options)
-      g2s.geniePlaylist(options.name, options.public)
+      g2s.playlist(options.name, options.public)
     })
   program.parse(process.argv)
 }
