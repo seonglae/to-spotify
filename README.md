@@ -6,10 +6,24 @@
 
 
 # Install
+
+### Windows
+<img src="https://user-images.githubusercontent.com/27716524/123204750-abd5f780-d4f3-11eb-9698-3190870e55ed.png" width=500>
+powershell 을 windows 검색창에 치고 우클릭해서 관리자의 권한으로 실행
+### node, npm 설치
+```bash
+iwr -useb get.scoop.sh | iex
+scoop install nodejs
 ```
+
+### to-sptify 설치
+```bash
 npm i -g to-spotify
 g2s --help
 ```
+### Other OSs
+node, npm [설치](https://nodejs.org/ko/download/)하고 위 커맨드를 실행
+
 
 # Usage
 - You need bgsq of yout genie id (your id must be public)
