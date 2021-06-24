@@ -44,7 +44,7 @@ node, npm [설치](https://nodejs.org/ko/download/)하고 위 커맨드를 실�
 ![gis](asset/image/auth.png)
 ![auth](asset/image/auth.png)
 
-- 토큰이 아주 기니까 전부 
+- 토큰이 아주 기니까 일부만 복사하지 않도록 
 
 
 ```bash
