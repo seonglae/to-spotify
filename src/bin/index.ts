@@ -4,6 +4,9 @@ import { Command, Option } from 'commander'
 
 import g2s from '../index'
 
+type LikedOption = { bgsq: string; stoken: string }
+type PlayListOption = { bgsq: string; stoken: string; mxnm: string; name?: string; public?: boolean }
+
 const consola = require('consola')
 const { version, description }: { version: string; description: string } = require('../../package.json')
 const program = new Command()
@@ -25,7 +28,7 @@ function main() {
     .description('G2S Migrate genie liked artist to spotify follow artist')
     .addOption(genieUser)
     .addOption(spotifyToken)
-    .action(async (command: string, options: { bgsq: string; stoken: string }): Promise<void> => {
+    .action(async (command: string, options: LikedOption): Promise<void> => {
       if (command === 'artists') g2s.likedArtists(options.bgsq, options.stoken)
       else if (command === 'albums') g2s.likedAlbums(options.bgsq, options.stoken)
       else if (command === 'tracks') g2s.likedTracks(options.bgsq, options.stoken)
@@ -40,7 +43,7 @@ function main() {
     .addOption(geniePlaylist)
     .addOption(playlistPublic)
     .action(
-      async (options: { bgsq: string; stoken: string; mxnm: string; name?: string; public?: boolean }): Promise<void> =>
+      async (options: PlayListOption): Promise<void> =>
         g2s.playlist(options.bgsq, options.mxnm, options.stoken, options.name, options.public)
     )
   program.parse(process.argv)
