@@ -2,7 +2,7 @@
 
 import { Command, Option } from 'commander'
 
-import g2s from '../index'
+import G2S from '../worker/g2s'
 
 type LikedOption = { bgsq: string; stoken: string }
 type PlayListOption = { bgsq: string; stoken: string; mxnm: string; name?: string; public?: boolean }
@@ -29,9 +29,10 @@ function main() {
     .addOption(genieUser)
     .addOption(spotifyToken)
     .action(async (command: string, options: LikedOption): Promise<void> => {
-      if (command === 'artists') g2s.likedArtists(options.bgsq, options.stoken)
-      else if (command === 'albums') g2s.likedAlbums(options.bgsq, options.stoken)
-      else if (command === 'tracks') g2s.likedTracks(options.bgsq, options.stoken)
+      const g2s = new G2S(options.bgsq)
+      if (command === 'artists') g2s.likedGenieArtists(options.bgsq, options.stoken)
+      else if (command === 'albums') g2s.likedGenieAlbums(options.bgsq, options.stoken)
+      else if (command === 'tracks') g2s.likedGenieTracks(options.bgsq, options.stoken)
       else consola.error(`No ${command} Option, artists or albums or tracks`)
     })
   program
@@ -42,10 +43,10 @@ function main() {
     .addOption(playlistName)
     .addOption(geniePlaylist)
     .addOption(playlistPublic)
-    .action(
-      async (options: PlayListOption): Promise<void> =>
-        g2s.playlist(options.bgsq, options.mxnm, options.stoken, options.name, options.public)
-    )
+    .action(async (options: PlayListOption): Promise<void> => {
+      const g2s = new G2S(options.bgsq)
+      g2s.geniePlaylist(options.bgsq, options.mxnm, options.stoken, options.name, options.public)
+    })
   program.parse(process.argv)
 }
 

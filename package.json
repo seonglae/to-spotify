@@ -45,7 +45,8 @@
     "macos"
   ],
   "bin": {
-    "g2s": "dist/bin/index.js"
+    "g2s": "dist/bin/g2s.js",
+    "m2s": "dist/bin/m2s.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
