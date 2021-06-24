@@ -8,23 +8,21 @@ Migrate your Musics to Spotify</h3>
 <p>
 스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다
 
-
 <br/>
-
 
 # [사용법](https://to-spotify.vercel.app)
 
-
 # Features
+
 - Migrate Liked Music List
 - Migrate Liked Album List
 - Migrate Liked Artist List
 - Playlist Migration
 
-
 # Develop
 
 ### Local install
+
 ```bash
 git clone https://github.com/seonglae/to-spotify
 npm i -g pnpm
