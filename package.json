@@ -1,9 +1,13 @@
 {
   "name": "to-spotify",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Genie To Spotify CLI Migration Tool",
   "main": "dist/index.js",
-  "author": "seonglae <sungle3737@gmail.com>",
+  "author": {
+    "name": "Seonglae Cho",
+    "email": "sungle3737@gmail.com",
+    "url": "http://www.seongland.com"
+  },
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
@@ -12,8 +16,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seonglane/genie-to-spotify.git"
+    "url": "https://github.com/seonglae/to-spotify.git"
   },
+  "bugs": {
+    "url": "https://github.com/seonglae/to-spotify/issues",
+    "email": "sungle3737@gmail.com"
+  },
+  "homepage": "https://github.com/seonglae/to-spotify",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "spoityf",
+    "melon",
+    "genie",
+    "migration"
+  ],
+  "contributors": [
+    {
+      "name": "Seonglae Cho",
+      "email": "sungle3737@gmail.com",
+      "url": "http://www.seongland.com"
+    }
+  ],
   "pkg": {
     "targets": [
       "win",
