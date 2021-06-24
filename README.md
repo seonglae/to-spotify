@@ -8,9 +8,7 @@ Migrate your Musics to Spotify</h2>
 <p>
 스포티파이로 플레이리스트나 좋아요한 아티스트, 앨범, 트랙 목록을 옮길 수 있습니다
 
-
 <br/>
-
 
 # 설치
 
@@ -24,17 +22,21 @@ Migrate your Musics to Spotify</h2>
 아래 **커맨드**들을 복붙 엔터
 
 - **node, npm 설치**
+
 ```bash
 iwr -useb get.scoop.sh | iex
 scoop install nodejs
 ```
 
 - **to-sptify 설치**
+
 ```bash
 npm i -g to-spotify
 g2s --help
 ```
+
 ### Other OSs
+
 node, npm [설치](https://nodejs.org/ko/download/)하고 위 **커맨드**를 실행
 
 <br/>
@@ -43,8 +45,8 @@ node, npm [설치](https://nodejs.org/ko/download/)하고 위 **커맨드**를 �
 
 ### 1. 지니 아이디 보기
 
-지니뮤직에 들어가서 플레이리스트에 나의 좋아요를 누름
-리스트에서 2번째 페이지나 다른 페이지를 클릭
+지니뮤직에 들어가서 플레이리스트에 나의 좋아요를 누름리스트에서 2번째 페이지나
+다른 페이지를 클릭
 
 <p align="center">
 <img src="asset/image/nav.png" width="500"/>
@@ -61,6 +63,7 @@ node, npm [설치](https://nodejs.org/ko/download/)하고 위 **커맨드**를 �
 - [여기](https://developer.spotify.com/console/get-search-item/) 들어가기
 
 Get Token 누르기
+
 <p align="center">
 <img src="asset/image/stoken.png" width="700"/>
 </p>
@@ -71,30 +74,29 @@ Get Token 누르기
 - 토큰이 아주 기니까 일부만 복사하지 않도록 조심
 - 토큰 권한은 위와같이 줘야 기능이 정상적으로 작동
 
-
-
 <br/>
 
 ## 플레이리스트 옮기기
 
 플레이리스트 genie 페이지에 들어가서 플레이리스트를 공개 url의 mxnm을 기억합니다
+
 - 공개된 플레이리스트가 아니라면 수정하기 눌러서 공개된 플레이리스트로 수정
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/27716524/123207427-5223fc00-d4f8-11eb-957c-79565b040387.png" width="1000"/>
 </p>
 
-
 ```bash
 g2s playlist --bgsq blablanumber --mxnm blabla --stoken blablatoolong...
 ```
 
-한글이 포함되어 있는 곡들은 잘 안찾아지는 경향이 있어서 이전 실패 곡들이 리스트들이 곡들이 아래처럼 커맨드창에 뜰텐데
-해당 곡들은 직접 넣어야 합니다 ㅠㅠ
+한글이 포함되어 있는 곡들은 잘 안찾아지는 경향이 있어서 이전 실패 곡들이 리스트
+들이 곡들이 아래처럼 커맨드창에 뜰텐데해당 곡들은 직접 넣어야 합니다 ㅠㅠ
 
 <br/>
 
 ## 좋아요 리스트 옮기기
+
 bssq와 stoken을 넣어주면 자동으로 좋아요 리스트들을 이전합니다
 
 ```bash
@@ -109,20 +111,21 @@ g2s liked artists --bgsq blablanumber --stoken blablatoolong...
 
 마찬가지로 안옮겨진 친구들은 손으로 옮겨줘야!
 
-
 # 기능
+
 - Migrate Liked Music List
 - Migrate Liked Album List
 - Migrate Liked Artist List
 - Playlist Migration
 
 # Soon
-- Melon Support
 
+- Melon Support
 
 # Develop
 
 ### Local install
+
 ```bash
 git clone https://github.com/seonglae/to-spotify
 npm i -g pnpm
