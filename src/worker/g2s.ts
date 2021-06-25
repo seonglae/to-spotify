@@ -2,7 +2,7 @@ import Migrator from '../core/migrator'
 import Musicface from '../core/musicface'
 
 const GENIE = 'https://www.genie.co.kr'
-const FILTERS = ['TITLE ', '19금 ', '#']
+const FILTERS = ['TITLE ', '19금 ', '#', '?', '&']
 const TITLE_QUERY = '.info__title'
 const NEXT_QUERY = ['.page-nav .next']
 
