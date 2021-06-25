@@ -2,7 +2,7 @@ import Migrator from '../core/migrator'
 import Musicface from '../core/musicface'
 
 const MELON = 'https://www.melon.com'
-const FILTERS = ['#']
+const FILTERS = ['#', ' 상세정보 페이지 이동', '?', "&"]
 const TITLE_QUERY = '.more_txt_title'
 const NEXT_QUERY = ['.paginate strong+a', '.btn_next']
 
@@ -24,20 +24,20 @@ export class M2S implements Musicface {
   }
 
   public async likedArtists(): Promise<void> {
-    const url = `${MELON}/mymusic/like/mymusiclikesong_list.htm?memberKey=${this.mkey}`
-    const queries = ['.artist-name']
+    const url = `${MELON}/mymusic/like/mymusicartistfan_list.htm?memberKey=${this.mkey}`
+    const queries = ['dl dt a']
     this.migrator.likedArtists(url, queries, FILTERS)
   }
 
   public async likedAlbums(): Promise<void> {
     const url = `${MELON}/mymusic/like/mymusiclikealbum_list.htm?memberKey=${this.mkey}`
-    const queries = ['dt.ellipsis', '.album-artist']
+    const queries = ['.checkEllipsis', 'dl dt a']
     this.migrator.likedAlbums(url, queries, FILTERS)
   }
 
   public async likedTracks(): Promise<void> {
-    const url = `${MELON}/mymusic/artistfan/mymusicartistfan_list.htm?memberKey=${this.mkey}`
-    const queries = ['a.artist', 'a.title']
+    const url = `${MELON}/mymusic/artistfan/mymusiclikesong_list.htm?memberKey=${this.mkey}`
+    const queries = ['.checkEllipsis', '.wrap .ellipsis a span']
     this.migrator.likedTracks(url, queries, FILTERS)
   }
 }
