@@ -24,21 +24,21 @@ export class M2S implements Musicface {
   }
 
   public async likedArtists(): Promise<void> {
-    const url = `${MELON}/mymusic/like/mymusicartistfan_list.htm?memberKey=${this.mkey}`
+    const url = `${MELON}/mymusic/artistfan/mymusicartistfan_list.htm?memberKey=${this.mkey}`
     const queries = ['dl dt a']
-    this.migrator.likedArtists(url, queries, FILTERS)
+    this.migrator.likedArtists(url, queries, FILTERS, true)
   }
 
   public async likedAlbums(): Promise<void> {
     const url = `${MELON}/mymusic/like/mymusiclikealbum_list.htm?memberKey=${this.mkey}`
     const queries = ['.checkEllipsis', 'dl dt a']
-    this.migrator.likedAlbums(url, queries, FILTERS)
+    this.migrator.likedAlbums(url, queries, FILTERS, true)
   }
 
   public async likedTracks(): Promise<void> {
-    const url = `${MELON}/mymusic/artistfan/mymusiclikesong_list.htm?memberKey=${this.mkey}`
+    const url = `${MELON}/mymusic/like/mymusiclikesong_list.htm?memberKey=${this.mkey}`
     const queries = ['.checkEllipsis', '.wrap .ellipsis a span']
-    this.migrator.likedTracks(url, queries, FILTERS)
+    this.migrator.likedTracks(url, queries, FILTERS, true)
   }
 }
 

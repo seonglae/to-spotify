@@ -9,7 +9,7 @@ export class Crawler {
     this.nextQueries = options.nextQueries
   }
 
-  async getList(page: Page, queries: Array<string>, filters: Array<string>) {
+  async getList(page: Page, queries: Array<string>, filters: Array<string>, fast?: boolean) {
     const all: Array<string> = []
     let pg = 1
     let currentHref: string = ''
@@ -51,10 +51,11 @@ export class Crawler {
       if (typeof href === 'string') {
         if (!href.includes('javascript:')) await page.goto(href)
       } else break
-      await this.waitUntil(
-        () => currentURL !== page.url(),
-        () => ({})
-      )
+      if (!fast)
+        await this.waitUntil(
+          () => currentURL !== page.url(),
+          () => ({})
+        )
     }
     console.log(all.join('\n'))
     consola.info(`Found ${all.length} items\n`)
