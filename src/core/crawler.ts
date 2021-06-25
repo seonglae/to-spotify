@@ -1,7 +1,7 @@
 import { chromium as engine, Page, Browser } from 'playwright'
+// import progress from 'cli-progress'
 
 const consola = require('consola')
-
 export class Crawler {
   nextQueries: Array<string>
 
@@ -12,9 +12,11 @@ export class Crawler {
   async getList(page: Page, queries: Array<string>, filters: Array<string>) {
     const all: Array<string> = []
     let pg = 1
+    let currentHref: string = ''
     while (true) {
-      const { lists, href } = await page.evaluate(
-        ({ queries, filters, nextQueries }): { href?: string; lists: Array<string> } => {
+      const currentURL = page.url()
+      const { list, href } = await page.evaluate(
+        ({ queries, filters, nextQueries }): { href?: string; list: Array<string> } => {
           const nameSets: Array<Array<string>> = []
           for (const query of queries) {
             const elements: NodeListOf<HTMLElement> = document.querySelectorAll(query)
@@ -25,7 +27,7 @@ export class Crawler {
               else nameSets[index] = [name]
             })
           }
-          const lists: Array<string> = nameSets.map(nameSet => nameSet.join(' '))
+          const list: Array<string> = nameSets.map(nameSet => nameSet.join(' '))
           let nextBtn
           for (const nextQuery of nextQueries) {
             nextBtn = <HTMLAnchorElement>document.querySelector(nextQuery)
@@ -38,19 +40,36 @@ export class Crawler {
             if (href.includes('javascript:')) eval(href)
             if (href.includes('javascript:;')) href = undefined
           }
-          return { href, lists }
+          return { href, list }
         },
         { queries, filters, nextQueries: this.nextQueries }
       )
-      all.push(...lists)
+      if (currentHref === href) continue
+      currentHref = <string>href
+      list.map(item => (!all.includes(item) ? all.push(item) : null))
       consola.success(`Page ${pg++} Added`)
       if (typeof href === 'string') {
         if (!href.includes('javascript:')) await page.goto(href)
       } else break
+      await this.waitUntil(
+        () => currentURL !== page.url(),
+        () => ({})
+      )
     }
-    consola.info('Lists\n')
     console.log(all.join('\n'))
+    consola.info(`Found ${all.length} items\n`)
     return all
+  }
+
+  async waitUntil<T>(
+    flag: (...args: any[]) => boolean,
+    callback: (...args: any[]) => T,
+    args: any[] = [],
+    time: number = 50
+  ): Promise<T> {
+    return new Promise(async resolve =>
+      flag() ? resolve(await callback(...args)) : setTimeout(() => this.waitUntil(flag, callback, args, time), time)
+    )
   }
 
   async getQueryText(page: Page, query: string): Promise<string> {
