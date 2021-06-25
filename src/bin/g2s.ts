@@ -22,7 +22,7 @@ function main() {
   const playlistPublic = new Option('--public').default(false)
 
   // Commands
-  program.version(version, '-v, --version').description(description)
+  program.version(version, '-v, --version').description(`Genie ${description}`)
   program
     .command('liked <command>')
     .description('G2S Migrate genie liked artist to spotify follow artist')
