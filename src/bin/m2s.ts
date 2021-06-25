@@ -22,7 +22,7 @@ function main() {
   const playlistPublic = new Option('--public').default(false)
 
   // Commands
-  program.version(version, '-v, --version').description(description)
+  program.version(version, '-v, --version').description(`Melon ${description}`)
   program
     .command('liked <command>')
     .description('G2S Migrate melon liked artist to spotify follow artist')

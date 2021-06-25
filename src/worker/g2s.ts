@@ -25,7 +25,6 @@ export class G2S implements Musicface {
 
   public async likedArtists(): Promise<void> {
     const url = `${GENIE}/myMusic/likeArtist?mltp=artist&bgsq=${this.bgsq}`
-    console.log(url)
     const queries = ['.artist-name']
     this.migrator.likedArtists(url, queries, FILTERS)
   }
