@@ -1,6 +1,6 @@
 {
   "name": "to-spotify",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "To Spotify CLI Migration Tool",
   "main": "dist/index.js",
   "author": {
