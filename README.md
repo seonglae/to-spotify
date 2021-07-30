@@ -12,7 +12,7 @@ Migrate your Musics to Spotify</h3>
 <br/>
 
 
-# [사용법](https://to-spotify.vercel.app)
+# [사용법](https://2spotify.seongland.com)
 
 
 # Features
