@@ -2,15 +2,15 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.9.2
-  '@types/node': 14.18.12
+  '@types/node': 14.18.13
   axios: ^0.26.1
   chalk: ^5.0.1
   cli-progress: ^3.10.0
   colors: ^1.4.0
-  commander: 9.1.0
+  commander: 9.2.0
   consola: ^2.15.3
-  pkg: ^5.5.2
-  playwright: ^1.20.2
+  pkg: ^5.6.0
+  playwright: ^1.21.0
   retry-axios: ^2.6.0
   typescript: 4.6.3
 
@@ -19,15 +19,15 @@ dependencies:
   chalk: 5.0.1
   cli-progress: 3.10.0
   colors: 1.4.0
-  commander: 9.1.0
+  commander: 9.2.0
   consola: 2.15.3
-  playwright: 1.20.2
+  playwright: 1.21.0
   retry-axios: 2.6.0_axios@0.26.1
 
 devDependencies:
   '@types/cli-progress': 3.9.2
-  '@types/node': 14.18.12
-  pkg: 5.5.2
+  '@types/node': 14.18.13
+  pkg: 5.6.0
   typescript: 4.6.3
 
 packages:
@@ -75,17 +75,17 @@ packages:
   /@types/cli-progress/3.9.2:
     resolution: {integrity: sha512-VO5/X5Ij+oVgEVjg5u0IXVe3JQSKJX+Ev8C5x+0hPy0AuWyW+bF8tbajR7cPFnDGhs7pidztcac+ccrDtk5teA==}
     dependencies:
-      '@types/node': 14.18.12
+      '@types/node': 14.18.13
     dev: true
 
-  /@types/node/14.18.12:
-    resolution: {integrity: sha512-q4jlIR71hUpWTnGhXWcakgkZeHa3CCjcQcnuzU8M891BAWA2jHiziiWEPEkdS5pFsz7H9HJiy8BrK7tBRNrY7A==}
+  /@types/node/14.18.13:
+    resolution: {integrity: sha512-Z6/KzgyWOga3pJNS42A+zayjhPbf2zM3hegRQaOPnLOzEi86VV++6FLDWgR1LGrVCRufP/ph2daa3tEa5br1zA==}
 
   /@types/yauzl/2.9.1:
     resolution: {integrity: sha512-A1b8SU4D10uoPjwb0lnHmmu8wZhR9d+9o2PKBQT2jU5YPTKsxac6M2qGAdY7VcL+dHHhARVUDmeg0rOrcd9EjA==}
     requiresBuild: true
     dependencies:
-      '@types/node': 14.18.12
+      '@types/node': 14.18.13
     dev: false
     optional: true
 
@@ -241,8 +241,8 @@ packages:
     engines: {node: '>= 12'}
     dev: false
 
-  /commander/9.1.0:
-    resolution: {integrity: sha512-i0/MaqBtdbnJ4XQs4Pmyb+oFQl+q0lsAmokVUH92SlSw4fkeAcG3bVon+Qt7hmtF+u3Het6o4VgrcY3qAoEB6w==}
+  /commander/9.2.0:
+    resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
     engines: {node: ^12.20.0 || >=14}
     dev: false
 
@@ -774,8 +774,8 @@ packages:
       pngjs: 4.0.1
     dev: false
 
-  /pkg-fetch/3.2.6:
-    resolution: {integrity: sha512-Q8fx6SIT022g0cdSE4Axv/xpfHeltspo2gg1KsWRinLQZOTRRAtOOaEFghA1F3jJ8FVsh8hGrL/Pb6Ea5XHIFw==}
+  /pkg-fetch/3.3.0:
+    resolution: {integrity: sha512-xJnIZ1KP+8rNN+VLafwu4tEeV4m8IkFBDdCFqmAJz9K1aiXEtbARmdbEe6HlXWGSVuShSHjFXpfkKRkDBQ5kiA==}
     hasBin: true
     dependencies:
       chalk: 4.1.2
@@ -791,8 +791,8 @@ packages:
       - supports-color
     dev: true
 
-  /pkg/5.5.2:
-    resolution: {integrity: sha512-pD0UB2ud01C6pVv2wpGsTYJrXI/bnvGRYvMLd44wFzA1p+A2jrlTGFPAYa7YEYzmitXhx23PqalaG1eUEnSwcA==}
+  /pkg/5.6.0:
+    resolution: {integrity: sha512-mHrAVSQWmHA41RnUmRpC7pK9lNnMfdA16CF3cqOI22a8LZxOQzF7M8YWtA2nfs+d7I0MTDXOtkDsAsFXeCpYjg==}
     hasBin: true
     peerDependencies:
       node-notifier: '>=9.0.1'
@@ -809,7 +809,7 @@ packages:
       into-stream: 6.0.0
       minimist: 1.2.5
       multistream: 4.1.0
-      pkg-fetch: 3.2.6
+      pkg-fetch: 3.3.0
       prebuild-install: 6.1.4
       progress: 2.0.3
       resolve: 1.20.0
@@ -820,8 +820,8 @@ packages:
       - supports-color
     dev: true
 
-  /playwright-core/1.20.2:
-    resolution: {integrity: sha512-iV6+HftSPalynkq0CYJala1vaTOq7+gU9BRfKCdM9bAxNq/lFLrwbluug2Wt5OoUwbMABcnTThIEm3/qUhCdJQ==}
+  /playwright-core/1.21.0:
+    resolution: {integrity: sha512-yDGVs9qaaW6WiefgR7wH1CGt9D6D/X4U3jNpIzH0FjjrrWLCOYQo78Tu3SkW8X+/kWlBpj49iWf3QNSxhYc12Q==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
@@ -849,13 +849,13 @@ packages:
       - utf-8-validate
     dev: false
 
-  /playwright/1.20.2:
-    resolution: {integrity: sha512-p6GE8A/f2G7t8FIk/AwQ94nT7R7tyPRJyKt1FwRjwBDf4WdpgoAr4hDfMgHy+CkClR22adFjopGwhxXAPsewhg==}
+  /playwright/1.21.0:
+    resolution: {integrity: sha512-OH5ZFoiS0HkBZzhb7HPVeE8lEx3PO/AaKgoQfgs1NbmwFPqHgPzfKFa3fO+VM27WqTLjtYOL6hM03sWnJhT3ig==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.20.2
+      playwright-core: 1.21.0
     transitivePeerDependencies:
       - bufferutil
       - supports-color
