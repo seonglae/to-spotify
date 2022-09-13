@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.11.0
-  '@types/node': 14.18.26
+  '@types/node': 14.18.29
   axios: ^0.27.2
   chalk: ^5.0.1
   cli-progress: ^3.11.2
@@ -10,9 +10,9 @@ specifiers:
   commander: 9.4.0
   consola: ^2.15.3
   pkg: ^5.8.0
-  playwright: ^1.25.1
+  playwright: ^1.25.2
   retry-axios: ^3.0.0
-  typescript: 4.8.2
+  typescript: 4.8.3
 
 dependencies:
   axios: 0.27.2
@@ -21,14 +21,14 @@ dependencies:
   colors: 1.4.0
   commander: 9.4.0
   consola: 2.15.3
-  playwright: 1.25.1
+  playwright: 1.25.2
   retry-axios: 3.0.0_axios@0.27.2
 
 devDependencies:
   '@types/cli-progress': 3.11.0
-  '@types/node': 14.18.26
+  '@types/node': 14.18.29
   pkg: 5.8.0
-  typescript: 4.8.2
+  typescript: 4.8.3
 
 packages:
 
@@ -116,11 +116,11 @@ packages:
   /@types/cli-progress/3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 14.18.26
+      '@types/node': 14.18.29
     dev: true
 
-  /@types/node/14.18.26:
-    resolution: {integrity: sha512-0b+utRBSYj8L7XAp0d+DX7lI4cSmowNaaTkk6/1SKzbKkG+doLuPusB9EOvzLJ8ahJSk03bTLIL6cWaEd4dBKA==}
+  /@types/node/14.18.29:
+    resolution: {integrity: sha512-LhF+9fbIX4iPzhsRLpK5H7iPdvW8L4IwGciXQIOEcuF62+9nw/VQVsOViAOOGxY3OlOKGLFv0sWwJXdwQeTn6A==}
     dev: true
 
   /agent-base/6.0.2:
@@ -733,19 +733,19 @@ packages:
       - supports-color
     dev: true
 
-  /playwright-core/1.25.1:
-    resolution: {integrity: sha512-lSvPCmA2n7LawD2Hw7gSCLScZ+vYRkhU8xH0AapMyzwN+ojoDqhkH/KIEUxwNu2PjPoE/fcE0wLAksdOhJ2O5g==}
+  /playwright-core/1.25.2:
+    resolution: {integrity: sha512-0yTbUE9lIddkEpLHL3u8PoCL+pWiZtj5A/j3U7YoNjcmKKDGBnCrgHJMzwd2J5vy6l28q4ki3JIuz7McLHhl1A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
 
-  /playwright/1.25.1:
-    resolution: {integrity: sha512-kOlW7mllnQ70ALTwAor73q/FhdH9EEXLUqjdzqioYLcSVC4n4NBfDqeCikGuayFZrLECLkU6Hcbziy/szqTXSA==}
+  /playwright/1.25.2:
+    resolution: {integrity: sha512-RwMB5SFRV/8wSfK+tK8ycpqdzORvoqUNz9DUeRfSgZFrZej5uuBl9wFjWcc+OkXFEtaPmx1acAVGG7hA4IJ1kg==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.25.1
+      playwright-core: 1.25.2
     dev: false
 
   /prebuild-install/6.1.4:
@@ -1006,8 +1006,8 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /typescript/4.8.2:
-    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
+  /typescript/4.8.3:
+    resolution: {integrity: sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
