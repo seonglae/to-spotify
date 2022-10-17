@@ -2,31 +2,31 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.11.0
-  '@types/node': 14.18.31
+  '@types/node': 14.18.32
   axios: ^0.27.2
-  chalk: ^5.1.0
+  chalk: ^5.1.2
   cli-progress: ^3.11.2
   colors: ^1.4.0
   commander: 9.4.1
   consola: ^2.15.3
   pkg: ^5.8.0
-  playwright: ^1.27.0
+  playwright: ^1.27.1
   retry-axios: ^3.0.0
   typescript: 4.8.4
 
 dependencies:
   axios: 0.27.2
-  chalk: 5.1.0
+  chalk: 5.1.2
   cli-progress: 3.11.2
   colors: 1.4.0
   commander: 9.4.1
   consola: 2.15.3
-  playwright: 1.27.0
+  playwright: 1.27.1
   retry-axios: 3.0.0_axios@0.27.2
 
 devDependencies:
   '@types/cli-progress': 3.11.0
-  '@types/node': 14.18.31
+  '@types/node': 14.18.32
   pkg: 5.8.0
   typescript: 4.8.4
 
@@ -116,11 +116,11 @@ packages:
   /@types/cli-progress/3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 14.18.31
+      '@types/node': 14.18.32
     dev: true
 
-  /@types/node/14.18.31:
-    resolution: {integrity: sha512-vQAnaReSQkEDa8uwAyQby8bYGKu84R/deEc6mg5T8fX6gzCn8QW6rziSgsti1fNvsrswKUKPnVTi7uoB+u62Mw==}
+  /@types/node/14.18.32:
+    resolution: {integrity: sha512-Y6S38pFr04yb13qqHf8uk1nHE3lXgQ30WZbv1mLliV9pt0NjvqdWttLcrOYLnXbOafknVYRHZGoMSpR9UwfYow==}
     dev: true
 
   /agent-base/6.0.2:
@@ -216,8 +216,8 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /chalk/5.1.0:
-    resolution: {integrity: sha512-56zD4khRTBoIyzUYAFgDDaPhUMN/fC/rySe6aZGqbj/VWiU2eI3l6ZLOtYGFZAV5v02mwPjtpzlrOveJiz5eZQ==}
+  /chalk/5.1.2:
+    resolution: {integrity: sha512-E5CkT4jWURs1Vy5qGJye+XwCkNj7Od3Af7CP6SujMetSMkLs8Do2RWJK5yx1wamHV/op8Rz+9rltjaTQWDnEFQ==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
@@ -733,19 +733,19 @@ packages:
       - supports-color
     dev: true
 
-  /playwright-core/1.27.0:
-    resolution: {integrity: sha512-VBKaaFUVKDo3akW+o4DwbK1ZyXh46tcSwQKPK3lruh8IJd5feu55XVZx4vOkbb2uqrNdIF51sgsadYT533SdpA==}
+  /playwright-core/1.27.1:
+    resolution: {integrity: sha512-9EmeXDncC2Pmp/z+teoVYlvmPWUC6ejSSYZUln7YaP89Z6lpAaiaAnqroUt/BoLo8tn7WYShcfaCh+xofZa44Q==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
 
-  /playwright/1.27.0:
-    resolution: {integrity: sha512-F+0+0RD03LS+KdNAMMp63OBzu+NwYYLd52pKLczuSlTsV5b/SLkUoNhSfzDFngEFOuRL2gk0LlfGW3mKiUBk6w==}
+  /playwright/1.27.1:
+    resolution: {integrity: sha512-xXYZ7m36yTtC+oFgqH0eTgullGztKSRMb4yuwLPl8IYSmgBM88QiB+3IWb1mRIC9/NNwcgbG0RwtFlg+EAFQHQ==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.27.0
+      playwright-core: 1.27.1
     dev: false
 
   /prebuild-install/6.1.4:
