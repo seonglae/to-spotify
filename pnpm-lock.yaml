@@ -10,9 +10,9 @@ specifiers:
   commander: 9.4.1
   consola: ^2.15.3
   pkg: ^5.8.0
-  playwright: ^1.27.1
+  playwright: ^1.28.0
   retry-axios: ^3.0.0
-  typescript: 4.8.4
+  typescript: 4.9.3
 
 dependencies:
   axios: 0.27.2
@@ -21,14 +21,14 @@ dependencies:
   colors: 1.4.0
   commander: 9.4.1
   consola: 2.15.3
-  playwright: 1.27.1
+  playwright: 1.28.0
   retry-axios: 3.0.0_axios@0.27.2
 
 devDependencies:
   '@types/cli-progress': 3.11.0
   '@types/node': 18.11.9
   pkg: 5.8.0
-  typescript: 4.8.4
+  typescript: 4.9.3
 
 packages:
 
@@ -733,19 +733,19 @@ packages:
       - supports-color
     dev: true
 
-  /playwright-core/1.27.1:
-    resolution: {integrity: sha512-9EmeXDncC2Pmp/z+teoVYlvmPWUC6ejSSYZUln7YaP89Z6lpAaiaAnqroUt/BoLo8tn7WYShcfaCh+xofZa44Q==}
+  /playwright-core/1.28.0:
+    resolution: {integrity: sha512-nJLknd28kPBiCNTbqpu6Wmkrh63OEqJSFw9xOfL9qxfNwody7h6/L3O2dZoWQ6Oxcm0VOHjWmGiCUGkc0X3VZA==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
 
-  /playwright/1.27.1:
-    resolution: {integrity: sha512-xXYZ7m36yTtC+oFgqH0eTgullGztKSRMb4yuwLPl8IYSmgBM88QiB+3IWb1mRIC9/NNwcgbG0RwtFlg+EAFQHQ==}
+  /playwright/1.28.0:
+    resolution: {integrity: sha512-kyOXGc5y1mgi+hgEcCIyE1P1+JumLrxS09nFHo5sdJNzrucxPRAGwM4A2X3u3SDOfdgJqx61yIoR6Av+5plJPg==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.27.1
+      playwright-core: 1.28.0
     dev: false
 
   /prebuild-install/6.1.4:
@@ -1006,8 +1006,8 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /typescript/4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
