@@ -55,7 +55,7 @@
     "colors": "^1.4.0",
     "commander": "9.4.1",
     "consola": "^2.15.3",
-    "playwright": "^1.28.0",
+    "playwright": "^1.28.1",
     "retry-axios": "^3.0.0"
   },
   "devDependencies": {
