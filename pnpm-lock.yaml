@@ -2,9 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.11.0
-  '@types/node': 18.11.10
+  '@types/node': 18.11.14
   axios: ^0.27.2
-  chalk: ^5.1.2
+  chalk: ^5.2.0
   cli-progress: ^3.11.2
   colors: ^1.4.0
   commander: 9.4.1
@@ -12,11 +12,11 @@ specifiers:
   pkg: ^5.8.0
   playwright: ^1.28.1
   retry-axios: ^3.0.0
-  typescript: 4.9.3
+  typescript: 4.9.4
 
 dependencies:
   axios: 0.27.2
-  chalk: 5.1.2
+  chalk: 5.2.0
   cli-progress: 3.11.2
   colors: 1.4.0
   commander: 9.4.1
@@ -26,9 +26,9 @@ dependencies:
 
 devDependencies:
   '@types/cli-progress': 3.11.0
-  '@types/node': 18.11.10
+  '@types/node': 18.11.14
   pkg: 5.8.0
-  typescript: 4.9.3
+  typescript: 4.9.4
 
 packages:
 
@@ -116,11 +116,11 @@ packages:
   /@types/cli-progress/3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 18.11.10
+      '@types/node': 18.11.14
     dev: true
 
-  /@types/node/18.11.10:
-    resolution: {integrity: sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==}
+  /@types/node/18.11.14:
+    resolution: {integrity: sha512-0KXV57tENYmmJMl+FekeW9V3O/rlcqGQQJ/hNh9r8pKIj304pskWuEd8fCyNT86g/TpO0gcOTiLzsHLEURFMIQ==}
     dev: true
 
   /agent-base/6.0.2:
@@ -216,8 +216,8 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /chalk/5.1.2:
-    resolution: {integrity: sha512-E5CkT4jWURs1Vy5qGJye+XwCkNj7Od3Af7CP6SujMetSMkLs8Do2RWJK5yx1wamHV/op8Rz+9rltjaTQWDnEFQ==}
+  /chalk/5.2.0:
+    resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: false
 
@@ -1006,8 +1006,8 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
