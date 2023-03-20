@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.11.0
-  '@types/node': 18.15.0
+  '@types/node': 18.15.3
   axios: ^0.27.2
   chalk: ^5.2.0
   cli-progress: ^3.12.0
@@ -26,7 +26,7 @@ dependencies:
 
 devDependencies:
   '@types/cli-progress': 3.11.0
-  '@types/node': 18.15.0
+  '@types/node': 18.15.3
   pkg: 5.8.1
   typescript: 4.9.5
 
@@ -122,11 +122,11 @@ packages:
   /@types/cli-progress/3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 18.15.0
+      '@types/node': 18.15.3
     dev: true
 
-  /@types/node/18.15.0:
-    resolution: {integrity: sha512-z6nr0TTEOBGkzLGmbypWOGnpSpSIBorEhC4L+4HeQ2iezKCi4f77kyslRwvHeNitymGQ+oFyIWGP96l/DPSV9w==}
+  /@types/node/18.15.3:
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
     dev: true
 
   /agent-base/6.0.2:
