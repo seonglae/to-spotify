@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/cli-progress': ^3.11.0
-  '@types/node': 18.15.3
+  '@types/node': 18.15.10
   axios: ^0.27.2
   chalk: ^5.2.0
   cli-progress: ^3.12.0
@@ -10,7 +10,7 @@ specifiers:
   commander: 10.0.0
   consola: ^2.15.3
   pkg: ^5.8.1
-  playwright: ^1.31.2
+  playwright: ^1.32.1
   retry-axios: ^3.0.0
   typescript: 5.0.2
 
@@ -21,12 +21,12 @@ dependencies:
   colors: 1.4.0
   commander: 10.0.0
   consola: 2.15.3
-  playwright: 1.31.2
+  playwright: 1.32.1
   retry-axios: 3.0.0_axios@0.27.2
 
 devDependencies:
   '@types/cli-progress': 3.11.0
-  '@types/node': 18.15.3
+  '@types/node': 18.15.10
   pkg: 5.8.1
   typescript: 5.0.2
 
@@ -122,11 +122,11 @@ packages:
   /@types/cli-progress/3.11.0:
     resolution: {integrity: sha512-XhXhBv1R/q2ahF3BM7qT5HLzJNlIL0wbcGyZVjqOTqAybAnsLisd7gy1UCyIqpL+5Iv6XhlSyzjLCnI2sIdbCg==}
     dependencies:
-      '@types/node': 18.15.3
+      '@types/node': 18.15.10
     dev: true
 
-  /@types/node/18.15.3:
-    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
+  /@types/node/18.15.10:
+    resolution: {integrity: sha512-9avDaQJczATcXgfmMAW3MIWArOO7A+m90vuCFLr8AotWf8igO/mRoYukrk2cqZVtv38tHs33retzHEilM7FpeQ==}
     dev: true
 
   /agent-base/6.0.2:
@@ -667,19 +667,19 @@ packages:
       - supports-color
     dev: true
 
-  /playwright-core/1.31.2:
-    resolution: {integrity: sha512-a1dFgCNQw4vCsG7bnojZjDnPewZcw7tZUNFN0ZkcLYKj+mPmXvg4MpaaKZ5SgqPsOmqIf2YsVRkgqiRDxD+fDQ==}
+  /playwright-core/1.32.1:
+    resolution: {integrity: sha512-KZYUQC10mXD2Am1rGlidaalNGYk3LU1vZqqNk0gT4XPty1jOqgup8KDP8l2CUlqoNKhXM5IfGjWgW37xvGllBA==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
 
-  /playwright/1.31.2:
-    resolution: {integrity: sha512-jpC47n2PKQNtzB7clmBuWh6ftBRS/Bt5EGLigJ9k2QAKcNeYXZkEaDH5gmvb6+AbcE0DO6GnXdbl9ogG6Eh+og==}
+  /playwright/1.32.1:
+    resolution: {integrity: sha512-GnEizysWMvoqHC3I9l8+4/ZxeLwLNdJJG76xdKGxzOcIZDcw5RSk/FKrFb5CuA+zcLpjIM2p9eR9Z4CuUDkWXg==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.31.2
+      playwright-core: 1.32.1
     dev: false
 
   /prebuild-install/7.1.1:
