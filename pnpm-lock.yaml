@@ -7,7 +7,7 @@ specifiers:
   chalk: ^5.2.0
   cli-progress: ^3.12.0
   colors: ^1.4.0
-  commander: 10.0.1
+  commander: 11.0.0
   consola: ^3.1.0
   pkg: ^5.8.1
   playwright: ^1.35.0
@@ -19,7 +19,7 @@ dependencies:
   chalk: 5.2.0
   cli-progress: 3.12.0
   colors: 1.4.0
-  commander: 10.0.1
+  commander: 11.0.0
   consola: 3.1.0
   playwright: 1.35.0
   retry-axios: 3.0.0_axios@0.27.2
@@ -253,9 +253,9 @@ packages:
       delayed-stream: 1.0.0
     dev: false
 
-  /commander/10.0.1:
-    resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
-    engines: {node: '>=14'}
+  /commander/11.0.0:
+    resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
+    engines: {node: '>=16'}
     dev: false
 
   /consola/3.1.0:
