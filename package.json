@@ -55,12 +55,12 @@
     "colors": "^1.4.0",
     "commander": "11.0.0",
     "consola": "^3.2.3",
-    "playwright": "^1.36.2",
+    "playwright": "^1.37.1",
     "retry-axios": "^3.0.0"
   },
   "devDependencies": {
     "@types/cli-progress": "^3.11.0",
-    "@types/node": "18.17.3",
+    "@types/node": "18.17.6",
     "pkg": "^5.8.1",
     "typescript": "5.1.6"
   }
