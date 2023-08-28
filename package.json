@@ -60,8 +60,8 @@
   },
   "devDependencies": {
     "@types/cli-progress": "^3.11.0",
-    "@types/node": "18.17.6",
+    "@types/node": "18.17.12",
     "pkg": "^5.8.1",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   }
 }
