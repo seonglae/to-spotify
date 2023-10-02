@@ -1,8 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@types/cli-progress': ^3.11.2
-  '@types/node': 18.17.19
+  '@types/cli-progress': ^3.11.3
+  '@types/node': 18.18.1
   axios: ^0.27.2
   chalk: ^5.3.0
   cli-progress: ^3.12.0
@@ -25,8 +25,8 @@ dependencies:
   retry-axios: 3.1.0_axios@0.27.2
 
 devDependencies:
-  '@types/cli-progress': 3.11.2
-  '@types/node': 18.17.19
+  '@types/cli-progress': 3.11.3
+  '@types/node': 18.18.1
   pkg: 5.8.1
   typescript: 5.2.2
 
@@ -119,14 +119,14 @@ packages:
       fastq: 1.11.0
     dev: true
 
-  /@types/cli-progress/3.11.2:
-    resolution: {integrity: sha512-Yt/8rEJalfa9ve2SbfQnwFHrc9QF52JIZYHW3FDaTMpkCvnns26ueKiPHDxyJ0CS//IqjMINTx7R5Xa7k7uFHQ==}
+  /@types/cli-progress/3.11.3:
+    resolution: {integrity: sha512-/+C9xAdVtc+g5yHHkGBThgAA8rYpi5B+2ve3wLtybYj0JHEBs57ivR4x/zGfSsplRnV+psE91Nfin1soNKqz5Q==}
     dependencies:
-      '@types/node': 18.17.19
+      '@types/node': 18.18.1
     dev: true
 
-  /@types/node/18.17.19:
-    resolution: {integrity: sha512-+pMhShR3Or5GR0/sp4Da7FnhVmTalWm81M6MkEldbwjETSaPalw138Z4KdpQaistvqQxLB7Cy4xwYdxpbSOs9Q==}
+  /@types/node/18.18.1:
+    resolution: {integrity: sha512-3G42sxmm0fF2+Vtb9TJQpnjmP+uKlWvFa8KoEGquh4gqRmoUG/N0ufuhikw6HEsdG2G2oIKhog1GCTfz9v5NdQ==}
     dev: true
 
   /agent-base/6.0.2:
